@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Array-remove-duplicate</title>
+</head>
+<body>
+  
+</body>
+<script>
+(function () {
+  Array.prototype.unique = function () {
+    // 构建只有一个初始值的数组，存放结果
+    var newArray = [this[0]];
+    for (var i = 1; i < this.length; i++) {
+      var repeat = false;
+      for (var j = 0; j < newArray.length; j++) {
+        // 原数组取出的元素与结果元素相同
+        if (this[i] === newArray[j]) {
+          repeat = true;
+          break;
+        }
+      }
+      if (!repeat) {
+        newArray.push(this[i]);
+      }
+    }
+    return newArray;
+  }
+  var arr = [1,2,3,4,'a','b',1,3,4,56,32,34,2,'b','c',5,'1',`2`];
+  console.log(arr.unique())
+
+  // test
+  function test () {
+    var arr = [];
+    for (var i = 0; i < 100000; i++) {
+      arr.push(Math.round(Math.random(i) * 10000))
+    }
+    doTest(arr, 1)
+  }
+
+  // doTest
+  function doTest (arr, n) {
+    console.time(n)
+    var re = arr.unique()
+    console.timeEnd(n) // 3928ms
+  }
+  test()
+})()
+
+</script>
+</html>

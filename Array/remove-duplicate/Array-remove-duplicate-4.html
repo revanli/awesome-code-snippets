@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Array-remove-duplicate</title>
+</head>
+<body>
+  
+</body>
+<script>
+// ES6 method, use babel-broswer to test
+(function () {
+  function unique (arr) {
+    const seen = new Map()
+    return arr.filter((a) => !seen.has(a) && seen.set(a, 1))
+  }
+
+  function unique (arr) {
+    return Array.from(new Set(arr))
+  }
+
+  var arr = [1,2,3,4,'a','b',1,3,4,56,32,34,2,'b','c',5,'1','2'];
+  console.log(unique(arr));
+})()
+</script>
+</html>
