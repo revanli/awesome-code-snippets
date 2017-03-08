@@ -8,20 +8,20 @@
   
 </body>
 <script>
+// 对象键值法
 (function () {
   // 对象键值对法
   Array.prototype.unique = function () {
     // 构建新数组存放结果
     var newArray = [];
     var object = {};
-    for (var i = 1; i < this.length; i++) {
+    for (var i = 0; i < this.length; i++) {
       // 检测在object对象中是否包含遍历到的元素的值, like {number1: 1}
       if (!object[typeof(this[i]) + this[i]]) {
         newArray.push(this[i]);
         object[typeof(this[i]) + this[i]] = 1;
       }
     }
-    console.log(object)
     return newArray;
   }
   var arr = [1,2,3,4,'a','b',1,3,4,56,32,34,2,'b','c',5,'1','2'];

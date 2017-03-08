@@ -8,12 +8,15 @@
   
 </body>
 <script>
+// 实现思路：给原数组排序，排序后相同的元素会出现在相邻的位置，
+// 遍历时加入不与前一值重复的值
+// 缺点是：与数字相同的数字字符无法区分，比如'1'和1
 (function () {
   Array.prototype.unique = function () {
     // 原数组先排序, 默认排序顺序时根据字符串Unicode码点
     this.sort();
     // 构建新数组存放结果
-    var newArray = [];
+    var newArray = [this[0]];
     for (var i = 1; i < this.length; i++) {
       // 检查原数中的第i个元素与结果中的最后一个元素是否相同
       // 排序后重复元素会出现在相邻的位置
