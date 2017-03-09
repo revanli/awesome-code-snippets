@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>merge-array</title>
+</head>
+<body>
+  
+</body>
+<script>
+// 仅合并两个数组
+(function () {
+  function merge (arr1, arr2) {
+    var result = [];
+    var arr = [];
+    // 合并
+    arr = arr2.reduce(function (prev, curr) {
+      prev.push(curr);
+      return prev;
+    }, arr1);
+    // 去重
+    for (var i = 0; i < arr.length; i++) {
+      if (arr.indexOf(arr[i]) == i) {
+        result.push(arr[i]);
+      }
+    }
+    return result;
+  }
+
+  var arr1 = [1, 2, 3, 4, 5, 6];
+  var arr2 = [3, 4, 7, 8];
+  console.log(merge(arr1, arr2));  // [1, 2, 3, 4, 5, 6, 7, 8]
+})()
+</script>
+</html>
