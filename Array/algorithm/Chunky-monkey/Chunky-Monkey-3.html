@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chunk-Monkey</title>
+</head>
+<body>
+  
+</body>
+<script>
+(function () {
+  // chunky monkey
+  // Given an array and base on fixed size to slice,
+  // and then push sliced array to new array combining multiply array
+  // for example, chunk(["a", "b", "c", "d"], 2), return [["a", "b"], ["c", "d"]]
+  function chunk (arr, size) {
+    var tempArr = [],
+        newArr = [];
+
+    for (var i in arr) {
+      if (i != 0 && i % size === 0) {
+        newArr.push(tempArr)
+        tempArr = []
+      }
+      tempArr.push(arr[i])
+    }
+
+    if (tempArr.length) {
+      newArr.push(tempArr);
+    }
+    return newArr;
+  }
+
+  console.log(chunk(["a"], 2))
+  console.log(chunk(["a", "b", "c", "d", "e"], 2))
+  console.log(chunk([0, 1, 2, 3, 4, 5, 6, 7, 8], 4))
+})()
+</script>
+</html>
