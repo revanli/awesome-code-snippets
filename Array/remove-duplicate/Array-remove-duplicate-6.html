@@ -8,15 +8,22 @@
   
 </body>
 <script>
-// 数组下标判断法
+// 优化遍历数组法
 (function () {
   function unique (arr) {
     var newArray = [];
     for (var i = 0; i < arr.length; i++) {
-      // 当前数组的第i项在当前中第一次出现的位置不是i说明前面已经有同样的数组先出现了
-      if (arr.indexOf(arr[i]) == i) {
-        newArray.push(arr[i])
+      console.log('ai','a[' + i + ']', arr[i])
+      for (var j = i + 1; j < arr.length; j++) {
+        console.log('aj','a[' + j + ']', arr[j])
+        // 如果找到重复的则从j=i+1开始重新遍历数组，然后和a[i+1]对比
+        if (arr[i] === arr[j]) {
+          j = ++i;
+          console.log('i, j', i, j)
+        }
       }
+      // 获取最一开始没重复的值放入新数组
+      newArray.push(arr[i])
     }
     return newArray;
   }
