@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>string example 02</title>
+</head>
+<body>
+  <script>
+    var str = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, impedit.";
+    // 给定字符, 返回字符在字符串中的位置，arg[2]表示从哪个位置开始搜索
+    var position = new Array();
+    var pos = str.indexOf('e');
+
+    while(pos > -1) {
+      position.push(pos);
+      pos = str.indexOf("e", pos + 1);
+    }
+
+    console.log('position', position);
+  </script>
+</body>
+</html>
