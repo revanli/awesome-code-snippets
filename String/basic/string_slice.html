@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>string replace</title>
+</head>
+<body>
+  <script>
+    /**
+     * str.slice(beginIndex[, endIndex])
+     * @param {int} [beginIndex] The zero-based index at which to begin extraction.
+     *    if negative, it is treated as strLength + beginIndex. if it greater than or 
+     *    equal to the length of the string, it returns an empty string.
+     *
+     * @param {int} [endIndex] Optional. The zero-base index before which to end extraction, 
+     *    the character at this index will not be included
+     *
+     * @return {string} [A new string containing the extracted section of the string]
+     */
+    
+    var str = 'The morning is upon us.',
+        str1 = str.slice(1, 8),
+        str2 = str.slice(4, -2),
+        str3 = str.slice(12),
+        str4 = str.slice(30),
+        str5 = str.slice(-3),
+        str6  = str.slice(-3, -1),
+        str7 = str.slice(0, -1);
+    console.log(str1 + '\n' + str2 + '\n' + str3 + '\n' + str4 + '\n' + str5 + '\n' + str6 + '\n' + str7 + '\n')
+  </script>
+</body>
+</html>

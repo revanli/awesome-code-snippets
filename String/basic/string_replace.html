@@ -40,6 +40,11 @@
      var newstr = str.replace(re, 'oranges');
      console.log(newstr);
 
+     var re1 = /(\w+)\s(\w+)/;
+     var str1 = "John Smith";
+     var newStr1 = str1.replace(re1, '$2, $1');
+     console.log(newStr1);
+
      function styleHyphenFormat (propertyName) {
         function upperToHyphenLower (match, offset, string) {
             return (offset ? '-' : '') + match.toLowerCase();
@@ -58,6 +63,9 @@
         return s.replace(test, convert);
     }
     console.log(f2c('212F'))
+
+    var str2 = 'x-x_';
+    
   </script>
 </body>
 </html>
