@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Web Animation API</title>
+  <style>
+    .animate {
+      animation-name: move-and-change-color;
+      animation-duration: .4s;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes move-and-change-color {
+      0% {
+        transform: translateX(0);
+      }
+      80% {
+        transform: translateX(100px);
+        background-color: #2196F3;
+      }
+      100% {
+        transform: translateX(100px);
+        background-color: #EF5350;
+      }
+    }
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    #spinner {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 3px solid #e2e2e2;
+      border-top-color: #186aab;
+      margin: 50px auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="spinner"></div>
+
+  <p>Try controlling the animation:</p>
+  <button id="pause">Pause</button>
+  <button id="play">Play</button>
+  <button id="reverse">Reverse</button>
+  <button id="cancel">Cancel</button>
+  <button id="half">0.5</button>
+  <button id="normal">Normal</button>
+  <button id="double">2</button>
+  <button id="triple">3</button>
+  <script>
+    var spinner = document.getElementById('spinner');
+    var spinnerAnimation = spinner.animate([
+      {
+        transform: 'rotate(0)'
+      },
+      {
+        transform: 'rotate(359deg)'
+      }
+    ], {
+      duration: 1000,
+      // iterations: Infinity
+      iterations: 4000
+    });
+    document.getElementById('pause').addEventListener('click', function() { 
+      spinnerAnimation.pause();
+    });
+    document.getElementById('play').addEventListener('click', function() { 
+      spinnerAnimation.play(); 
+    });
+    document.getElementById('reverse').addEventListener('click', function() { 
+      spinnerAnimation.reverse(); 
+    });
+    document.getElementById('cancel').addEventListener('click', function() { 
+      spinnerAnimation.cancel(); 
+    });
+    document.getElementById('half').addEventListener('click', function() { 
+      spinnerAnimation.playbackRate = 0.5; 
+    });
+    document.getElementById('normal').addEventListener('click', function() { 
+      spinnerAnimation.playbackRate = 1; 
+    });
+    document.getElementById('double').addEventListener('click', function() { 
+      spinnerAnimation.playbackRate = 2; 
+    });
+    document.getElementById('triple').addEventListener('click', function() { 
+      spinnerAnimation.playbackRate = 3; 
+    });
+    spinnerAnimation.addEventListener('finish', function() {
+      // Animation has completed or .finish() has been called.
+      doSomething('finish');
+    });
+    spinnerAnimation.addEventListener('cancel', function() {
+      // Animation has been canceled.    
+      doSomething('cancel');
+    });
+    function doSomething (msg) {
+      console.log(msg);
+    }
+  </script>
+</body>
+</html>
