@@ -1,14 +1,14 @@
 export default function(context) {
-  var context = context || window
-  context.fn = this
+  context = context || window;
+  context.fn = this;
 
-  var args = []
+  var args = [];
   for (var i = 1, len = arguments.length; i < len; i++) {
-    args.push('arguments[' + i + ']');
+    args.push(`arguments[${  i  }]`);
   }
 
-  var result = eval('context.fn(' + args + ')')
-  delete context.fn
+  var result = eval(`context.fn(${  args  })`);
+  delete context.fn;
 
-  return result
+  return result;
 }

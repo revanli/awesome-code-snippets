@@ -22,20 +22,23 @@
   "devDependencies": {
     "@babel/core": "^7.7.5",
     "@babel/preset-env": "^7.7.6",
+    "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb": "^18.0.1",
     "husky": "^3.1.0",
     "jest": "^24.9.0",
     "lint-staged": "^10.0.0-beta.7"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && npm test",
-      "pre-push": "lint-staged && npm test"
+      "pre-commit": "npm test",
+      "pre-push": "npm test"
     }
   },
   "lint-staged": {
     "*.js": [
-      "eslint --fix",
+      "eslint --fix --ext js src",
       "git add"
     ]
   }
