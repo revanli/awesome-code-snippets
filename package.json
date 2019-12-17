@@ -1,7 +1,7 @@
 {
   "name": "awesome-code-snippets",
   "version": "1.0.0",
-  "description": "show me the code",
+  "description": "talk is cheap, show me the code",
   "main": "./src",
   "scripts": {
     "test": "jest",
