@@ -7,10 +7,31 @@
  * 
  * @return  {Function}  
  */
-export function debounce(func, wait) {
-  var timeout;
+export function debounce(func, wait, immediate) {
+  var timer = null;
+  // func 有返回值需要返回
+  var result;
+
   return function() {
-    clearTimeout(timeout)
-    timeout = setTimeout(func, wait)
+    // this的指向
+    var context = this
+    // 提取原函数的参数
+    var args = arguments
+
+    const needCallNow = immediate && !timer
+
+    clearTimeout(timer)
+    timer = setTimeout(function() {
+      timer = null
+      if (!immediate) {
+        func.apply(context, args)
+      }
+    }, wait)
+
+    if (needCallNow) {
+      result = func.apply(context, args)
+    }
+
+    return result
   }
 }
