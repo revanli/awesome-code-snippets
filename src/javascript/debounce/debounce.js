@@ -3,7 +3,7 @@
  *
  * @param   {Function}  func  要执行的函数
  * @param   {Number}  wait  时间间隔
- * @param   {Boolean} immediate 是否立即执行，也就是前置防抖
+ * @param   {Boolean} immediate 是否立即执行，立即执行就是前置防抖, 之后执行的是后置防抖
  * 
  * @return  {Function}  
  */
