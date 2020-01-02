@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:cov": "jest --coverage"
+    "test:cov": "jest --coverage",
+    "test:promise": "npx promises-aplus-tests ./src/javascript/promise/promise.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,8 @@
   },
   "homepage": "https://github.com/revanli/awesome-code-snippets#readme",
   "dependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.7.4"
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "promises-aplus-tests": "^2.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
